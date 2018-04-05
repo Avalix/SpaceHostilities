@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27303ad260238442b25eeb68bc88079, type: 3}
+  m_Name: TestBattleSetup
+  m_EditorClassIdentifier: 
+  SpawnData:
+  - Faction: {fileID: 11400000, guid: d043e7d369946134b9a06fa5035b03d8, type: 2}
+    ShipDefinition: {fileID: 11400000, guid: 9b1589c5c8a0991408342db2bd767291, type: 2}
+    SpawnCount: 10000
