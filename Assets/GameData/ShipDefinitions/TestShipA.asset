@@ -11,6 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2a594d66e876c41b4b85672bd25050, type: 3}
   m_Name: TestShipA
   m_EditorClassIdentifier: 
-  Data:
+  ShipVisuals:
     ShipMesh: {fileID: 4300000, guid: af6f47ea79041ed4f837552591689b3a, type: 3}
-    ShipScale: 1
+    ShipMaterial: {fileID: 2100000, guid: c53bbbd0d1ee96c4e8aa586016d11e4c, type: 2}
+  ShipScale:
+    Scale: 2

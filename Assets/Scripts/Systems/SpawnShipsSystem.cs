@@ -90,12 +90,12 @@ public class SpawnShipsSystem : ComponentSystem {
                 
                 EntityManager.SetComponentData(newShips[i], new ShipHeading()
                 {
-                    Heading = new float3(0.0f, 0.0f, 0.0f),
+                    Heading = new float3(0.0f, 0.0f, 1.0f),
                     LocalUp = new float3(0.0f, 1.0f, 0.0f)
                 });
                 
-                sharedData.Faction.UpdateComponentData(EntityManager, newShips[i]);
-                sharedData.ShipDefinition.UpdateComponentData(EntityManager, newShips[i]);
+                sharedData.Faction.UpdateComponentDataFromSO(EntityManager, newShips[i]);
+                sharedData.ShipDefinition.UpdateComponentDataFromSO(EntityManager, newShips[i]);
             }
             
             spawnPositions.Dispose();

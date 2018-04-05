@@ -23,8 +23,9 @@ public class SpaceHostilitiesBootStrap : MonoBehaviour {
         ShipArchetype = EntityManager.CreateArchetype(
             typeof(ShipPosition),
             typeof(ShipHeading),
+            typeof(ShipScale),
             typeof(ShipRenderMatrix),
-            typeof(ShipDefinition),
+            typeof(ShipVisuals),
             typeof(ShipFaction));
         
         ShipSpawnerArchetype = EntityManager.CreateArchetype(
