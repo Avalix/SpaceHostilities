@@ -4,7 +4,7 @@ using UnityEngine;
 
 [Serializable]
 public struct SpawnShipsData : ISharedComponentData {
-	public ShipFactionDataSO Faction;
+	public ShipFactionDefintionSO Faction;
 	public ShipDefinitionDataSO ShipDefinition;
 	public int SpawnCount;
 }

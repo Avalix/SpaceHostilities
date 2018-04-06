@@ -24,6 +24,7 @@ public class SpaceHostilitiesBootStrap : MonoBehaviour {
             typeof(ShipPosition),
             typeof(ShipHeading),
             typeof(ShipScale),
+            typeof(ShipColor),
             typeof(ShipRenderMatrix),
             typeof(ShipVisuals),
             typeof(ShipFaction));

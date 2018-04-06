@@ -4,6 +4,6 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [Serializable]
-public struct ShipFaction : ISharedComponentData {
-    public int FactionId;
+public struct ShipColor : IComponentData {
+	public float4 Color; 
 }

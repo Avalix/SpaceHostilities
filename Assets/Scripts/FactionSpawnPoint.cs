@@ -3,7 +3,7 @@
 [ExecuteInEditMode]
 public class FactionSpawnPoint : MonoBehaviour {
 	
-	public ShipFactionDataSO Faction;
+	public ShipFactionDefintionSO Faction;
 	public float SpawnRadius = 75.0f;
 	
 	private Renderer _renderer;
@@ -25,9 +25,9 @@ public class FactionSpawnPoint : MonoBehaviour {
 		Color sphereColor = Color.gray;
 		float emmision = 0.0f;
 		
-		if(Faction!= null)
+		if(Faction!= null && Faction.FactionColors.Count > 0)
 		{
-			sphereColor = Faction.Data.FactionColor * 2.0f;
+			sphereColor = Faction.FactionColors[0] * 2.0f;
 			emmision = 0.0f;
 		}
 		
@@ -43,9 +43,9 @@ public class FactionSpawnPoint : MonoBehaviour {
 	{
 		Gizmos.color = Color.white;
 		
-		if(Faction != null)
+		if(Faction != null && Faction.FactionColors.Count > 0)
 		{
-			Gizmos.color = Faction.Data.FactionColor;
+			Gizmos.color = Faction.FactionColors[0];
 		}
 		
 		Gizmos.DrawWireSphere(transform.position, SpawnRadius);

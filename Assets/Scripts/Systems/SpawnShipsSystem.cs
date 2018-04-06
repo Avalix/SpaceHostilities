@@ -71,7 +71,7 @@ public class SpawnShipsSystem : ComponentSystem {
             
             if(_factionSpawnZones.TryGetValue(sharedData.Faction.FactionId, out factionSpawnZones) == false)
             {
-                Debug.LogWarning("No Spawn Zone for Faction '" + sharedData.Faction.Data.FactionName + "', skipping...");
+                Debug.LogWarning("No Spawn Zone for Faction '" + sharedData.Faction.FactionName + "', skipping...");
                 continue;
             }
             
@@ -83,19 +83,7 @@ public class SpawnShipsSystem : ComponentSystem {
             
             for(int i = 0; i < newShips.Length; ++i)
             {
-                EntityManager.SetComponentData(newShips[i], new ShipPosition()
-                {
-                    Position = spawnPositions[i],
-                });
-                
-                EntityManager.SetComponentData(newShips[i], new ShipHeading()
-                {
-                    Heading = new float3(0.0f, 0.0f, 1.0f),
-                    LocalUp = new float3(0.0f, 1.0f, 0.0f)
-                });
-                
-                sharedData.Faction.UpdateComponentDataFromSO(EntityManager, newShips[i]);
-                sharedData.ShipDefinition.UpdateComponentDataFromSO(EntityManager, newShips[i]);
+                SetNewShipData(newShips[i], spawnPositions[i], sharedData);
             }
             
             spawnPositions.Dispose();
@@ -103,7 +91,56 @@ public class SpawnShipsSystem : ComponentSystem {
             EntityManager.DestroyEntity(spawnEntity);
         }
     }
-    
+
+    private void SetNewShipData(Entity newShip, float3 spawnPosition, SpawnShipsData sharedData)
+    {
+        //Compoennt Data
+        EntityManager.SetComponentData(newShip, new ShipPosition()
+        {
+            Position = spawnPosition,
+        });
+
+        EntityManager.SetComponentData(newShip, new ShipHeading()
+        {
+            Heading = new float3(0.0f, 0.0f, 1.0f),
+            LocalUp = new float3(0.0f, 1.0f, 0.0f)
+        });
+        
+        var shipColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+            //sharedData.Faction.FactionColors[Random.Range(0, sharedData.Faction.FactionColors.Count)];
+
+        EntityManager.SetComponentData(newShip, new ShipColor()
+        {
+            Color = new float4(
+                shipColor.r,
+                shipColor.g,
+                shipColor.b,
+                shipColor.a),
+        });
+
+        EntityManager.SetComponentData(newShip, new ShipScale()
+        {
+            Scale = sharedData.ShipDefinition.Scale,
+        });
+
+        //Shared Data
+        EntityManager.SetSharedComponentData(newShip, new ShipFaction()
+        {
+            FactionId = sharedData.Faction.FactionId,
+        });
+
+        EntityManager.SetSharedComponentData(newShip, new ShipVisuals()
+        {
+            ShipMesh = sharedData.ShipDefinition.ShipMesh,
+            ShipMaterial = sharedData.ShipDefinition.ShipMaterial,
+        });
+
+        EntityManager.SetSharedComponentData(newShip, new ShipFaction()
+        {
+            FactionId = sharedData.Faction.FactionId,
+        });
+    }
+
     protected override void OnDestroyManager()
     {
         foreach(var spawnZone in _factionSpawnZones)

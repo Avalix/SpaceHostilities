@@ -14,4 +14,13 @@ MonoBehaviour:
   SpawnData:
   - Faction: {fileID: 11400000, guid: d043e7d369946134b9a06fa5035b03d8, type: 2}
     ShipDefinition: {fileID: 11400000, guid: 9b1589c5c8a0991408342db2bd767291, type: 2}
-    SpawnCount: 10000
+    SpawnCount: 6000
+  - Faction: {fileID: 11400000, guid: d043e7d369946134b9a06fa5035b03d8, type: 2}
+    ShipDefinition: {fileID: 11400000, guid: af1b6bdc45afcce4ea1ad9db43aeb824, type: 2}
+    SpawnCount: 1950
+  - Faction: {fileID: 11400000, guid: d043e7d369946134b9a06fa5035b03d8, type: 2}
+    ShipDefinition: {fileID: 11400000, guid: 482d48f2f6265db4296fe01c9325075f, type: 2}
+    SpawnCount: 1950
+  - Faction: {fileID: 11400000, guid: d043e7d369946134b9a06fa5035b03d8, type: 2}
+    ShipDefinition: {fileID: 11400000, guid: cbdb78b7d0cf55b4c8512a740b119d44, type: 2}
+    SpawnCount: 100

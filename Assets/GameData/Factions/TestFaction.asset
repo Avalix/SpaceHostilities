@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0df2d0856174042a8cd6c3b8a163ce, type: 3}
   m_Name: TestFaction
   m_EditorClassIdentifier: 
-  Data:
-    FactionName: Test Faction
-    FactionColor: {r: 1, g: 0.8836636, b: 0, a: 1}
+  FactionName: TestFaction
+  FactionColors:
+  - {r: 0, g: 0.8734226, b: 1, a: 1}
+  - {r: 0, g: 0.97199994, b: 0.9026393, a: 1}
+  - {r: 0, g: 0.55107546, b: 1, a: 1}
+  - {r: 0, g: 0.43554688, b: 1, a: 1}
+  - {r: 0.21139997, g: 0.33862036, b: 0.755, a: 1}
